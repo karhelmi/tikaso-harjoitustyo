@@ -12,4 +12,4 @@ def create_username(username, password):
         database.session.commit()
     except:
         return False
-    return "Onnistuit!" #login(username, password) # muuta tämä login-sivuksi myöhemmin
+    return True #login(username, password) # muuta tämä login-sivuksi myöhemmin

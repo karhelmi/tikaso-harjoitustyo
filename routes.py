@@ -3,6 +3,9 @@ from flask import render_template, request, redirect
 import users #and other tables later as well
 
 #as instructed in course material
+@app.route("/")
+def frontpage():
+    return render_template("frontpage.html")
 
 @app.route("/create_username", methods=["GET", "POST"])
 def create_username():

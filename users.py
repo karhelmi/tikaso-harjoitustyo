@@ -11,5 +11,5 @@ def create_username(username, password):
         database.session.execute(sql, {"username":username, "password":hash_value})
         database.session.commit()
     except:
-        return True #False
+        return False
     return True #login(username, password) # muuta tämä login-sivuksi myöhemmin

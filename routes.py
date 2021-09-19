@@ -3,9 +3,16 @@ from flask import render_template, request, redirect
 import users #and other tables later as well
 
 #as instructed in course material
-@app.route("/")
+@app.route("/", methods=["GET", "POST"]) ##TESTIIN METODIT LISÄTTY
 def frontpage():
-    return render_template("frontpage.html")
+    if request.method == "GET": #TESTI
+        return render_template("frontpage.html")
+    if request.method == "POST":
+        sana = request.form["sana"]
+        if users.testi(sana):
+            return redirect("/create_username")
+        else:
+            return render_template("error_message.html", message="The operation of creating a new username was not successful. Please try again.")
 
 @app.route("/create_username", methods=["GET", "POST"])
 def create_username():

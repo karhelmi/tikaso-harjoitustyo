@@ -15,10 +15,10 @@ def create_username(username, password):
     return True #login(username, password) # muuta tämä login-sivuksi myöhemmin
 
 def testi(sana):
-    try:
-        sql = "INSERT INTO testi (sana) VALUES (:sana)"
-        database.session.execute(sql, {"sana":sana})
-        database.session.commit()
-    except:
-        return False
+    #try:
+    sql = "INSERT INTO testi (sana) VALUES (:sana)"
+    database.session.execute(sql, {"sana":sana})
+    database.session.commit()
+    #except:
+    #    return False
     return True

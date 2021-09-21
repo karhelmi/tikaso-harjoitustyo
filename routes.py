@@ -1,5 +1,6 @@
 from app import app
 from flask import render_template, request, redirect
+from database import database ##
 import users #and other tables later as well
 
 #as instructed in course material
@@ -9,10 +10,13 @@ def frontpage():
         return render_template("frontpage.html")
     if request.method == "POST":
         sana = request.form["sana"]
-        if users.testi(sana):
-            return redirect("/create_username")
-        else:
-            return render_template("error_message.html", message="The operation of creating a new username was not successful. Please try again.")
+        sql = "INSERT INTO testi (sana) VALUES (:sana)" ##
+        database.session.execute(sql, {"sana":sana})##
+        database.session.commit()##
+        #if users.testi(sana):
+         #   return redirect("/create_username")
+        #else:
+         #   return render_template("error_message.html", message="The operation of creating a new username was not successful. Please try again.")
 
 @app.route("/create_username", methods=["GET", "POST"])
 def create_username():

@@ -12,13 +12,23 @@ def create_username(username, password):
         database.session.commit()
     except:
         return False
-    return True #login(username, password) # muuta tämä login-sivuksi myöhemmin
+    return login(username, password)
 
-def testi(sana):
-    #try:
-    sql = "INSERT INTO testi (sana) VALUES (:sana)"
-    database.session.execute(sql, {"sana":sana})
-    database.session.commit()
-    #except:
-    #    return False
-    return True
+def login(username, password):
+    sql = "SELECT id, password FROM users WHERE username=:username"
+    result = database.session.execute(sql, {"username":username})
+    user = result.fetchone()
+    if not user:
+        return False
+    else:
+        if check_password_hash(user.password, password):
+            session["user_id"] = user.id
+            return True
+        else:
+            return False
+
+def logout():
+    del session["user_id"]
+
+def user_id():
+    return session.get("user_id", 0)

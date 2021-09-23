@@ -2,6 +2,11 @@
 {% block title %}Create new user{% endblock %}
 {% block content %}
 
+<form action="/error_message" method="post">
 Error: {{ message }}
+<p>
+<input type="submit" value="Go back">
+</p>
+</form>
 
 {% endblock %}

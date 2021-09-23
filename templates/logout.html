@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block title %}Create new user{% endblock %}
+{% block content %}
+
+<title>Logout page</title>
+<h1>Logout page</h1>
+<b>You have now been logged out.</b>
+<p>
+If you wish to login again, please go to the login page.
+<p>
+
+<form action="/logout" method="POST">
+<input type="submit" name="logout_button" value="Go to login page">
+<form>
+
+{% endblock %}

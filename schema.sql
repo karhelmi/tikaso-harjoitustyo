@@ -11,8 +11,3 @@ CREATE TABLE products (
     until DATE,
     visible BOOLEAN NOT NULL
 );
-
-CREATE TABLE testi (
-    id SERIAL PRIMARY KEY,
-    sana TEXT
-);

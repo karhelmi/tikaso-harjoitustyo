@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block title %}Create new user{% endblock %}
+{% block content %}
+
+<title>Login page</title>
+<h1>Login page</h1>
+<b>Welcome to use</b> <i>the app!</i>
+<p>
+<form action="/" method="POST">
+You can login here. If you do not have a username yet, you can create one <a href="/create_username">here</a>.
+</form>
+<p>
+<form action="/" method="POST">
+    Username: <input type="text" name="username"> <br>
+    <p>
+    Password: <input type="password" name="password"> <br>
+    <p>
+    <input type="submit" name="button" value="Login">
+</form>
+
+{% endblock %}

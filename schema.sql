@@ -20,7 +20,7 @@ VALUES ('strawberry cake', '01/01/2015', NULL , True),
 ('chocolate bread', '01/08/2018', NULL , True),
 ('cranberry yoghurt', '01/06/2018', NULL , True),
 ('banana yoghurt', '01/06/2018', NULL , True),
-('fruit energy bar', '15/06/2020', NULL , True),
+('fruit energy bar', '10/06/2020', NULL , True),
 ('chocolate energy bar', '01/06/2021', NULL , True),
 ('coffee energy bar', '01/06/2021', NULL , True);
 

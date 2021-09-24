@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block title %}Create new user{% endblock %}
+{% block content %}
+
+<title>List of ideas page</title>
+<h1>List of ideas</h1>
+Here is a list of all ideas that we have received up to date.
+<p>
+<form action="/list_of_ideas" method="POST">
+<table>
+  <tr>
+    <th>Idea</th>
+    <th>Date</th>
+  </tr>
+</table>
+<table>
+  {% for idea in list_of_ideas %}
+  <tr>
+    <td><input type="checkbox" name="idea" checked></td>
+    <td>{{ idea[1] }}</td>
+    <td>{{ idea[2] }}</td>
+  </tr>
+  {% endfor %}
+</table>
+<p>
+This link does not go to short list yet. It takes you back to the product list.
+<p>
+<input type="submit" value="Short list">
+
+</form>
+
+{% endblock %}

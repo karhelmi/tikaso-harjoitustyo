@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block title %}Create new user{% endblock %}
+{% block content %}
+
+<title>Idea</title>
+<h1>Share your idea</h1>
+You selected {{ selection }}. Please write your improvement idea below.
+<p>
+<form action="/idea" method="POST">
+Idea: <br>
+<textarea name="idea" rows="5" cols="100">
+</textarea>
+<input type="hidden" name="datum" value="01/01/2021">
+<input type="hidden" name="short_list" value=False>
+<input type="hidden" name="visible" value=True>
+<p>
+<input type="submit" value="Send">
+
+</form>
+
+Thank you for sharing.
+
+{% endblock %}

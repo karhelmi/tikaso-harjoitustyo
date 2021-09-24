@@ -4,16 +4,31 @@
 
 <title>Frontpage</title>
 <h1>List of products</h1>
-<b>Here is a list of all of our products</b>
+Here is a list of all of our products. Please select the one for which you would like to provide your improvement idea.
 <p>
-{% for product in products %}
-<input type="radio" name="lang" value=1 checked> product
-{% endfor %}
+<form action="/frontpage" method="POST">
+<table>
+  <tr>
+    <th>Product</th>
+    <th>In selection since</th>
+    <th>In selection until</th>
+  </tr>
+</table>
+<table>
+  {% for product in products %}
+  <tr>
+    <td><input type="radio" name="product" checked></td>
+    <td>{{ product[1] }}</td>
+    <td>{{ product[2] }}</td>
+    <td>{{ product[3] }}</td>
+  </tr>
+  {% endfor %}
+</table>
+<p>
+<input type="submit" value="Share your improvement idea">
 
-<form action="/" method="POST">
-LIST!!!!!!!!!!!!!!!!!
 </form>
 
-
+Thank you for your input!
 
 {% endblock %}

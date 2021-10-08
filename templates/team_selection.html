@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block title %}Create new user{% endblock %}
+{% block content %}
+
+<title>Team selection</title>
+<h1>Team selection</h1>
+Create a new team for this project. Give it a <b>team name</b> and select the <b>team members</b> below.
+<p>
+<form action="/team_selection/{{idea_id}}" method="POST">
+Team name: <input type="text" name="team_name" minlength="1" maxlength="30"> <br>
+<p>
+Here is a list of employees that you can select to the project team.
+<p>
+<table>
+  <tr>
+    <th>Selected</th>
+    <th>First name</th>
+    <th>Last name</th>
+  </tr>
+<div class="checkbox">
+  {% for employee in empl %}
+  <tr>
+    <td><input type="checkbox" name="employee_list" value="{{ employee[0] }}"></td>
+    <td>{{ employee[1] }}</td>
+    <td>{{ employee[2] }}</td>
+  </tr>
+  {% endfor %}
+</div>
+</table>
+<p>
+<input type="submit" value="Confirm selection">
+
+</form>
+
+{% endblock %}

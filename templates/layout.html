@@ -1,15 +1,33 @@
 <!doctype html>
-<title>App to Accelerate Product Improvement - {% block title %}{% endblock %}</title>
-<img src="/static/app_logo3.jpg" alt="Picture of the app logo">
-<h1>App to Accelerate Product Improvement</h1>
-<p>
-{% if session.user_id %}
-<a href="/logout">Logout</a>
-{% else %}
-<a href="/create_username">Create username</a>
-<a href="/">Login</a>
-{% endif %}
+<link rel="stylesheet" href="/static/style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<hr>
-{% block content %}{% endblock %}
-<hr>
+<title>App to Accelerate Product Improvement - {% block title %}{% endblock %}</title>
+
+<body>
+    <p>
+    <div class="header">
+        <h1><img src="/static/app_logo3.jpg" alt="Picture of the app logo"/>  App for Product Improvement</h1>
+    </div>
+
+    <nav>
+        {% if session.user_id %}
+        <ul>
+          <li><a href="/logout">Logout</a></li>
+          <li><a href="/frontpage">Products</a></li>
+          <li><a href="/list_of_ideas">Ideas</a></li>
+          <li><a href="/projects">Projects</a></li>
+        {% else %} 
+          <li><a href="/create_username">Create username</a></li>
+          <li><a href="/">Login</a></li>
+        {% endif %}
+        </ul> 
+    </nav>
+
+    <div class="content">
+      <hr>
+      {% block content %}{% endblock %}
+      <hr>
+    </div>
+
+</body>

@@ -6,11 +6,11 @@
 If you do not have a username yet, please create one here.
 <p>
 <form action="/create_username" method="POST">
-Username: <input type="text" name="username"> <br>
+Username: <input type="text" name="username" minlength="1" maxlength="20"> <br>
 <p>
-Password: <input type="password" name="password1"> <br>
+Password: <input type="password" name="password1" minlength="1"> <br>
 <p>
-Repeat password: <input type="password" name="password2"> <br>
+Repeat password: <input type="password" name="password2" minlength="1"> <br>
 <p>
 <input type="submit" value="Create new username">
 </form>

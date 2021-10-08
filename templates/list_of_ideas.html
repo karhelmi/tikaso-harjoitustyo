@@ -6,26 +6,27 @@
 <h1>List of ideas</h1>
 Here is a list of all ideas that we have received up to date.
 <p>
+If you would like to initiate an improvement project based on one of the ideas, please click the button below.
+<p>
 <form action="/list_of_ideas" method="POST">
+<input type="submit" value="Initiate a new project">
+<p>
 <table>
   <tr>
+    <th></th>
+    <th>Product</th>
     <th>Idea</th>
     <th>Date</th>
   </tr>
-</table>
-<table>
   {% for idea in list_of_ideas %}
   <tr>
-    <td><input type="checkbox" name="idea" checked></td>
-    <td>{{ idea[1] }}</td>
+    <td>{{ idea[0] }}</td>
+    <td>{{ idea[1][0] }}</td>
     <td>{{ idea[2] }}</td>
+    <td>{{ idea[3] }}</td>
   </tr>
   {% endfor %}
 </table>
-<p>
-This link does not go to short list yet. It takes you back to the product list.
-<p>
-<input type="submit" value="Short list">
 
 </form>
 

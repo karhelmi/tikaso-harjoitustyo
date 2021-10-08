@@ -4,20 +4,29 @@
 
 <title>Idea</title>
 <h1>Share your idea</h1>
-You selected {{ selection }}. Please write your improvement idea below.
+You selected <b>{{ sel[0] }}</b>. Please write your improvement idea below.
 <p>
-<form action="/idea" method="POST">
+If you want to return to the <b>list of products</b>, click <a href="/frontpage"><b>here</b></a>.
+<p>        
+<form action="/idea/{{selected_prod_id}}" method="POST" onsubmit="return check(this)">
 Idea: <br>
 <textarea name="idea" rows="5" cols="100">
 </textarea>
-<input type="hidden" name="datum" value="01/01/2021">
-<input type="hidden" name="short_list" value=False>
+<input type="hidden" name="datum" value="CURRENT_DATE">
 <input type="hidden" name="visible" value=True>
 <p>
 <input type="submit" value="Send">
-
 </form>
 
 Thank you for sharing.
 
+<script>
+    function check(form) {
+        if (form.idea.value.length > 500) {
+            alert("The text is too long. Use max. 500 letters.");
+            return false;
+        }
+        return True;
+    }
+</script>
 {% endblock %}

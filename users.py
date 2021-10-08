@@ -7,12 +7,14 @@ from werkzeug.security import check_password_hash, generate_password_hash
 def create_username(username, password):
     hash_value = generate_password_hash(password)
     try:
-        sql = "INSERT INTO users (username, password) VALUES (:username, :password)"
-        database.session.execute(sql, {"username":username, "password":hash_value})
-        database.session.commit()
+        if len(username) > 0 and len(password) > 0:
+            sql = "INSERT INTO users (username, password) VALUES (:username, :password)"
+            database.session.execute(sql, {"username":username, "password":hash_value})
+            database.session.commit()
     except:
         return False
-    return login(username, password)
+    return True
+    #return login(username, password)
 
 def login(username, password):
     sql = "SELECT id, password FROM users WHERE username=:username"

@@ -1,15 +1,16 @@
 {% extends "layout.html" %}
-{% block title %}Create new user{% endblock %}
+{% block title %}List of ideas page{% endblock %}
 {% block content %}
 
 <title>List of ideas page</title>
 <h1>List of ideas</h1>
-Here is a list of all ideas that we have received up to date.
+Here is a list of all the ideas that we have received up to date.
 <p>
 If you would like to initiate an improvement project based on one of the ideas, please click the button below.
 <p>
 <form action="/list_of_ideas" method="POST">
-<input type="submit" value="Initiate a new project">
+<input type="submit" name="button" value="Initiate a new project">
+<input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
 <p>
 <table>
   <tr>

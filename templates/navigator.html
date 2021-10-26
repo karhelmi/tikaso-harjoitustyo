@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block title %}Navigator{% endblock %}
+{% block content %}
+
+<title>Navigator</title>
+<h1>Good To Know About The App</h1>
+<p>
+Welcome to use the app! The purpose of this app is to support an entity in
+product improvement by providing a platform for product users
+to share their ideas for product improvement, initiate product improvement projects
+based on the raised ideas and monitor all this.
+<p>
+The app structure is explained and few links provided below (after you have now logged in).
+<p>
+<ol type="square">
+  <li><a href="/frontpage">Products</a> (View a list of our products)</li>
+  <ul type="square">
+    <li>Select a product and share you improvement idea</li>
+    <li>Select a product and view the raised ideas for that product</li>
+  </ul>
+  <li><a href="/list_of_ideas">Ideas</a> (View a list of all the raised ideas)</li>
+  <li><a href="/ideas_project">Initiate a project</a> (based on a raised idea)</li>
+  <ul type="square">
+    <li>Select an idea and initiate a project by adding team name & team members for it.</li>
+  </ul>
+  <li><a href="/projects">Projects</a> (View a list of initiated projects and related information)</li>
+  <ul type="square">
+    <li>View project team members for each individual project team (through hyperlinks).</li>
+    <li><a href="/employees_involv">List of employees involved in improvement projects</a></li>
+  </ul>
+  <li>To logout - use the button on the navigation bar.</li>
+</ol>
+
+{% endblock %}

@@ -1,13 +1,13 @@
 {% extends "layout.html" %}
-{% block title %}Create new user{% endblock %}
+{% block title %}Team selection{% endblock %}
 {% block content %}
 
 <title>Team selection</title>
 <h1>Team selection</h1>
 Create a new team for this project. Give it a <b>team name</b> and select the <b>team members</b> below.
 <p>
-<form action="/team_selection/{{idea_id}}" method="POST">
-Team name: <input type="text" name="team_name" minlength="1" maxlength="30"> <br>
+<form action="/team_selection/{{idea_id}}" method="POST" onsubmit="return check(this)">
+Team name: <input type="text" name="team_name" minlength="3" maxlength="30"> (3-30 characters)<br>
 <p>
 Here is a list of employees that you can select to the project team.
 <p>
@@ -29,7 +29,18 @@ Here is a list of employees that you can select to the project team.
 </table>
 <p>
 <input type="submit" value="Confirm selection">
+<input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
 
 </form>
+
+<script>
+    function check(form) {
+        if (form.team_name.value.length < 3){
+            alert("Team name must include at least three (3) characters.");
+            return false;
+        }
+        return True;
+    }
+  </script>
 
 {% endblock %}

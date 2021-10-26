@@ -1,5 +1,5 @@
 {% extends "layout.html" %}
-{% block title %}Create new user{% endblock %}
+{% block title %}List of ideas initiate project{% endblock %}
 {% block content %}
 
 <title>List of ideas initiate project</title>
@@ -9,6 +9,7 @@ Second, add team information on the project site by clicking the button below.
 <p>
 <form action="/ideas_project" method="POST">
 <input type="submit" value="Add team information">
+<input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
 <p>
 <table>
   <tr>

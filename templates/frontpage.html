@@ -1,12 +1,10 @@
 {% extends "layout.html" %}
-{% block title %}Create new user{% endblock %}
+{% block title %}Frontpage{% endblock %}
 {% block content %}
 
 <title>Frontpage</title>
 <h1>List of products</h1>
 Here is a list of all of our products. Please select the one for which you would like to provide your improvement idea.
-<p>
-You can review the current list of shared improvement ideas <a href="/list_of_ideas">here</a>.  
 <p>
 <form action="/frontpage" method="POST">
 <table>
@@ -26,10 +24,14 @@ You can review the current list of shared improvement ideas <a href="/list_of_id
   {% endfor %}
 </table>
 <p>
-<input type="submit" value="Share your improvement idea">
-
+<input type="submit" name="action" value="Share your improvement idea">
+<p>
+<input type="submit" name="action" value="View raised ideas for the selected product">
+<input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
 </form>
 
 Thank you for your input!
+<p>
+<b>Up to date we have received {{ number_of_ideas[0] }} improvement ideas based on which we have initiated {{ number_of_projects[0] }} product improvement projects.</b>
 
 {% endblock %}

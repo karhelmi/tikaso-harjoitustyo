@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block title %}Team members{% endblock %}
+{% block content %}
+
+<title>Team members</title>
+<h1>Team members</h1>
+The members of the selected team <b>{{ team_members[0][0] }}</b> are as follows:
+<p>
+<form action="/team_members/{{selected_team_id}}" method="POST">
+  <table>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+    </tr>
+    {% for member in team_members %}
+    <tr>
+      <td>{{ member[1] }}</td>
+      <td>{{ member[2] }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+
+<p>
+  You get back to projects page 
+  <input type="submit" value="HERE">
+  <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}"> 
+</form>
+
+{% endblock %}

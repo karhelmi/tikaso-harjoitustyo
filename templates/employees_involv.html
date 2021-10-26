@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block title %}Employees{% endblock %}
+{% block content %}
+
+<title>Employees</title>
+<h1>Employees involved in various improvement projects</h1>
+Here is a list of employees involved in various improvement projects. Back to <a href="/projects">Projects</a> page.
+
+<p>
+<form action="/employees_involv" method="POST">
+  <table>
+    <tr>
+      <th>Last name</th>
+      <th>First name</th>
+      <th>Team member in</th>
+      <th>Related idea</th>
+      <th>Related product</th>
+    </tr>
+    {% for row in employees_involv %}
+    <tr>
+      <td>{{ row[1] }}</td>
+      <td>{{ row[0] }}</td>
+      <td>{{ row[2] }}</td>
+      <td>{{ row[3] }}</td>
+      <td>{{ row[4] }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  <p>
+</form>
+
+{% endblock %}

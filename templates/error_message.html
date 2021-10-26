@@ -1,14 +1,9 @@
 {% extends "layout.html" %}
-{% block title %}Create new user{% endblock %}
+{% block title %}Error{% endblock %}
 {% block content %}
 
-<form action="/error_message" method="post">
 Error: {{ message }}
 <p>
-Pahoittelut, painike ei vielä toimi. Käytä ylhäällä olevia linkkejä.
-<p>
-<input type="submit" value="Go back">
-</p>
-</form>
+Please use the navigation buttons on top or browser back button to return to the page you wish.
 
 {% endblock %}

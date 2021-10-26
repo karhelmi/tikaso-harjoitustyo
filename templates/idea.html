@@ -1,29 +1,34 @@
 {% extends "layout.html" %}
-{% block title %}Create new user{% endblock %}
+{% block title %}Idea{% endblock %}
 {% block content %}
 
 <title>Idea</title>
-<h1>Share your idea</h1>
+<h1>Share your improvement idea</h1>
 You selected <b>{{ sel[0] }}</b>. Please write your improvement idea below.
 <p>
 If you want to return to the <b>list of products</b>, click <a href="/frontpage"><b>here</b></a>.
 <p>        
 <form action="/idea/{{selected_prod_id}}" method="POST" onsubmit="return check(this)">
-Idea: <br>
-<textarea name="idea" rows="5" cols="100">
+Idea (3-300 characters): <br>
+<textarea name="idea" rows="5" cols="100" minlength="2" maxlength="300">
 </textarea>
 <input type="hidden" name="datum" value="CURRENT_DATE">
 <input type="hidden" name="visible" value=True>
 <p>
-<input type="submit" value="Send">
+<input type="submit" name=button value="Send">
+<input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
 </form>
 
 Thank you for sharing.
 
 <script>
     function check(form) {
-        if (form.idea.value.length > 500) {
-            alert("The text is too long. Use max. 500 letters.");
+        if (form.idea.value.length > 300) {
+            alert("The text is too long. Use max. 300 letters.");
+            return false;
+        }
+        if (form.idea.value.length < 3) {
+            alert("The text is too short. Use min. 3 letters.");
             return false;
         }
         return True;

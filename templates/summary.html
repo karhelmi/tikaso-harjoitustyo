@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block title %}Summary{% endblock %}
+{% block content %}
+
+<title>Summary</title>
+<h1>Summary</h1>
+You selected <b>{{ sel[0] }}</b>. Below, please see the raised ideas for this product together with related information.
+<p>
+<form action="/summary/{{selected_prod_id}}" method="POST">
+  <table>
+    <tr>
+      <th>Ideas</th>
+      <th>From whom</th>
+      <th>Date raised</th>
+    </tr>
+    {% for info in product_info %}
+    <tr>
+      <td>{{ info[0] }}</td>
+      <td>{{ info[1] }} </td>
+      <td>{{ info[2] }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  <p>
+  <input type="submit" value="Change product under review">
+  <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
+
+  </form>
+
+{% endblock %}

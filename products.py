@@ -44,9 +44,32 @@ def get_projects():
     project_list = result.fetchall()
     return project_list
 
-
 def get_projects2():
-    sql = "SELECT P.id, R.product, I.idea, T.team_name, P.start_datum, P.target_datum, P.completed, P.visible FROM projects P, teams T, ideas I, products R WHERE I.id = P.idea_id AND T.id = P.project_team_id AND I.product_id = R.id"
+    sql = "SELECT P.id, R.product, I.idea, T.team_name, P.start_datum, P.target_datum, P.completed, P.visible, T.id FROM projects P, teams T, ideas I, products R WHERE I.id = P.idea_id AND T.id = P.project_team_id AND I.product_id = R.id"
     result = database.session.execute(sql)
     project_list = result.fetchall()
     return project_list
+
+def retrieve_product_info(id):
+    sql = "SELECT I.idea, U.username, I.datum FROM ideas I, users U, products P WHERE P.id=:id AND I.product_id=P.id AND U.id=I.userid"
+    result = database.session.execute(sql, {"id":id})
+    product_info = result.fetchall()
+    return product_info
+
+def delete_this(id): # POISTA TÄMÄ KUN YLLÄ OLEVA TOIMII!
+    sql = "SELECT I.idea, U.username, I.datum, T.team_name IS NOT NULL, T.id IS NOT NULL FROM ideas I, users U, teams T, products P, projects R WHERE P.id=:id AND I.product_id=P.id AND U.id=I.userid AND I.id=R.idea_id AND T.id=R.project_team_id"
+    result = database.session.execute(sql, {"id":id})
+    product_info = result.fetchall()
+    return product_info
+
+def number_of_ideas():
+    sql = "SELECT COUNT(*) FROM ideas"
+    result = database.session.execute(sql)
+    number_of_ideas = result.fetchone()
+    return number_of_ideas
+
+def number_of_projects():
+    sql = "SELECT COUNT(*) FROM projects"
+    result = database.session.execute(sql)
+    number_of_projects = result.fetchone()
+    return number_of_projects

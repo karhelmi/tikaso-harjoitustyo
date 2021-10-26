@@ -2,14 +2,14 @@ body {
     margin: auto;
     max-width: 125em;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    background: rgb(179, 154, 207);
+    background: green;
     padding: 1em 2em
 }
 
 nav li {
     display: inline-block;
     padding: 0.5em 1em;
-    background: rgb(179, 100, 207);
+    background: burlywood;
     border-radius: .5em;
     margin: .5em;
 }
@@ -21,7 +21,7 @@ nav li {
 }
 
 .content {
-    background: yellow;
+    background: goldenrod;
     padding: 1em 2em;
     border-radius: .5em;
 }

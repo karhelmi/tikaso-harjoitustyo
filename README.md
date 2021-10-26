@@ -5,10 +5,6 @@
 I started planning this application on 10 Sep 2021 and have now delivered the final version. There were two intermediate releases before the final
 delivery date.
 
-The current status is that I have now delivered the third intermediate release to this GitHub site on 8 October 2021. The application includes seven data tables, which include all the needed information. The planned key functionalities have been completed. CSS formatting has been initiated and will be completed before the final release.
-
-Please note that I by mistake named the commits as for the 2nd release, but those are for this 3rd release.
-
 ## Subject of the Project
 
 The application is a web-based application that uses PostreSQL database and Python Flask library. The application contains seven (7) data tables.

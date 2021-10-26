@@ -56,12 +56,6 @@ def retrieve_product_info(id):
     product_info = result.fetchall()
     return product_info
 
-def delete_this(id): # POISTA TÄMÄ KUN YLLÄ OLEVA TOIMII!
-    sql = "SELECT I.idea, U.username, I.datum, T.team_name IS NOT NULL, T.id IS NOT NULL FROM ideas I, users U, teams T, products P, projects R WHERE P.id=:id AND I.product_id=P.id AND U.id=I.userid AND I.id=R.idea_id AND T.id=R.project_team_id"
-    result = database.session.execute(sql, {"id":id})
-    product_info = result.fetchall()
-    return product_info
-
 def number_of_ideas():
     sql = "SELECT COUNT(*) FROM ideas"
     result = database.session.execute(sql)

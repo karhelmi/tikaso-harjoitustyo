@@ -55,7 +55,7 @@ DROP TABLE IF EXISTS teams CASCADE;
 
 CREATE TABLE teams (
     id SERIAL PRIMARY KEY,
-    team_name TEXT,
+    team_name TEXT UNIQUE,
     visible BOOLEAN DEFAULT TRUE
 );
 
@@ -84,5 +84,3 @@ CREATE TABLE team_members (
     team_id INTEGER REFERENCES teams,
     employee_id INTEGER REFERENCES employees
 );
-
-

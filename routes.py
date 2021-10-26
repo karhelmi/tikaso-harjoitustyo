@@ -82,7 +82,7 @@ def list_of_ideas():
             idea_text = idea[2]
             datum = idea[3]
             corr_idealist.append([id, product, idea_text, datum])
-        return render_template("list_of_ideas.html", list_of_ideas=corr_idealist) #idealist)
+        return render_template("list_of_ideas.html", list_of_ideas=corr_idealist)
     if request.method == "POST":
         users.csrf()
         return redirect("/ideas_project")
